@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yangi Ishchi Qo'shish</title>
+    <style>
+        /* styles.css */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        button {
+            background: #007BFF;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .custom-button {
+            display: inline-block;
+            padding: 7px 120px;
+            background-color: #007bff; /* Tugma rangi */
+            color: #fff; /* Matn rangi */
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px; /* Burchaklarni yumaloqlash */
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3; /* Hover paytidagi rang */
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Yangi Ishchi Qo'shish</h1>
+    <form action="{% url 'home' %}" method="POST">
+        {% csrf_token %}<!-- Backend uchun endpoint -->
+        <!-- Ism -->
+        <div class="form-group">
+            <label for="fullname">To'liq Ism:</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Ism va familiya" required>
+        </div>
+        <!-- Telefon raqami -->
+        <div class="form-group">
+            <label for="phone">Telefon Raqami:</label>
+            <input type="tel" id="phone" name="phone_number" placeholder="+998901234567" required>
+        </div>
+        <!-- Maosh -->
+        <div class="form-group">
+            <label for="salary">Maosh (so'mda):</label>
+            <input type="number" id="salary" name="salary" placeholder="Maoshni kiriting" required>
+        </div>
+        <!-- Submit tugmasi -->
+        <button type="submit">Saqlash</button>
+
+    </form>
+    <br>
+    <a href="{% url 'home-list' %}" class="custom-button">Ishchilar ruyxati</a>
+
+</div>
+</body>
+</html>
