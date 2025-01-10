@@ -7,6 +7,9 @@
     <style>
         /* styles.css */
 
+        /* styles.css */
+
+        /* Umumiy stil */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
@@ -23,7 +26,7 @@
             padding: 20px 30px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 80%;
+            width: 80%; /* Desktop uchun kenglik */
             max-width: 800px;
             box-sizing: border-box;
         }
@@ -88,6 +91,54 @@
 
         .custom-button:hover {
             background-color: #0056b3; /* Hover paytidagi rang */
+        }
+
+        /* Mobil qurilmalar uchun */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px; /* Kichikroq paddings */
+                width: 95%; /* Kenglikni mobilga moslash */
+            }
+
+            table {
+                font-size: 12px; /* Jadval shriftini kichiklashtirish */
+            }
+
+            th, td {
+                padding: 8px; /* Jadval katakchalari uchun kichikroq padding */
+                font-size: 12px; /* Matnning umumiy kattaligini kichraytirish */
+            }
+
+            .delete-btn {
+                font-size: 12px;
+                padding: 4px 8px; /* Delete tugmasi uchun moslash */
+            }
+
+            .custom-button {
+                font-size: 14px;
+                padding: 8px 15px; /* Tugmaning kichikroq versiyasi */
+            }
+
+            h1 {
+                font-size: 20px; /* Mobil ekranlar uchun sarlavha shriftini moslash */
+            }
+        }
+
+        /* Juda kichik ekranlar uchun (masalan, 480px) */
+        @media (max-width: 480px) {
+            th, td {
+                font-size: 10px; /* Matnni yana kichraytirish */
+            }
+
+            .custom-button {
+                font-size: 12px;
+                padding: 6px 10px; /* Kichikroq tugma */
+            }
+
+            .delete-btn {
+                font-size: 10px;
+                padding: 3px 6px; /* Delete tugmasi kichikroq */
+            }
         }
 
 

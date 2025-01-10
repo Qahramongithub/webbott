@@ -1,10 +1,14 @@
+# Rasmiy NGINX tasvirini ishlatish
 FROM nginx:latest
 
-# Copy the Nginx configuration file
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# O'zgarilgan NGINX konfiguratsiya faylini konteynerga nusxalash
+# Odatda webbot.conf fayli /etc/nginx/ papkaga joylashtiriladi
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY default.conf /etc/nginx/conf.d/default.conf
 
-# Create directories for static and media files
+# Statik va media fayllar uchun papkalarni yaratish
 RUN mkdir -p /app/static /app/media
 
-# Expose port 80
+# Port 80 ni ochish
 EXPOSE 80
+

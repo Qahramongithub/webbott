@@ -2,15 +2,13 @@ import os.path
 from os.path import join
 from pathlib import Path
 
-import psycopg2
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-p3#p-s+r+@8&^5qe2!z&5*okjwa!hqy-w+0ke&gv!%hso_l6b_'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -20,9 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps',
-    'psycopg2'
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -96,7 +92,6 @@ AUTH_PASSWORD_VALIDATORS = [
 #         'PORT': 5432,
 #     }
 # }
-
 
 LANGUAGE_CODE = 'en-us'
 
