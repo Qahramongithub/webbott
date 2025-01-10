@@ -39,7 +39,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: gunicorn root.wsgi:application --bind 127.0.0.1:8000
+    command:
+      sh -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver --insecure 0.0.0.0:8000"
     volumes:
       - .:/app
       - static_volume:/app/static
@@ -60,7 +61,7 @@ services:
       - static_volume:/static
       - media_volume:/media
     ports:
-      - "80:80"
+      - "8080:80"
 
 volumes:
   static_volume:
