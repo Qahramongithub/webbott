@@ -1,23 +1,29 @@
-import asyncio
-import logging
-import sys
-from os import getenv
+# from telegram import Update
+# from telegram.ext import Updater, CommandHandler, CallbackContext
+# import telegram
+# # Botni yaratish
+# bot = telegram.Bot(token='7725923661:AAEwEvqw7V6icuD2t9f7jTiK_LfdD-AaMV8')
+from telegram.ext import Updater
 
-from aiogram import Bot
-from aiogram.client.default import DefaultBotProperties
-from aiogram.enums import ParseMode
-from dotenv import load_dotenv
-from bot.hendlers import *
-load_dotenv()
-TOKEN = getenv("TOKEN")
-
-
-async def main() -> None:
-    bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
-
-    await dp.start_polling(bot)
+# /start komandasini bajaruvchi funksiya
+def start(update: Update, context: CallbackContext):
+    chat_id = update.message.chat_id  # chat_id ni update orqali olish
+    bot.send_message(chat_id=chat_id, text=f"Hello {chat_id}")
 
 
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, stream=sys.stdout)
-    asyncio.run(main())
+# Botni ishga tushurish
+def main():
+    # Updater orqali botni ishga tushurish
+    updater = Updater('7725923661:AAEwEvqw7V6icuD2t9f7jTiK_LfdD-AaMV8', use_context=True)
+
+    # Dispatcher orqali handler qo'shish
+    dp = updater.dispatcher
+    dp.add_handler(CommandHandler("start", start))
+
+    # Botni ishga tushurish
+    updater.start_polling()
+    updater.idle()
+
+
+if __name__ == '__main__':
+    main()

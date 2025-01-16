@@ -71,26 +71,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'postgres',  # Bu yerda o'z bazangiz nomini yozing
-#         'USER': 'postgres',  # PostgreSQL foydalanuvchisi
-#         'PASSWORD': '2505',   # PostgreSQL foydalanuvchisining paroli
-#         'HOST': 'localhost',           # Agar PostgreSQL server lokal bo'lsa, 'localhost' deb yozing
-#         'PORT': '5432',                # PostgreSQL porti (odatiy port 5432)
-#     }
-# }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'postgres',
-#         'USER': 'postgres',
-#         'PASSWORD': '2505',
-#         'HOST': 'localhost',
-#         'PORT': 5432,
-#     }
-# }
 
 LANGUAGE_CODE = 'en-us'
 
